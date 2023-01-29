@@ -4,5 +4,16 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.linting.mypyEnabled": true,
+		"python.formatting.provider": "black",
+		"[python]": {
+			"editor.wordBasedSuggestions": false,
+			"editor.defaultFormatter": "ms-python.python",
+			"editor.codeActionsOnSave": {
+				"source.fixAll": true,
+				"source.organizeImports": true,
+			}
+		}
+	}
 }

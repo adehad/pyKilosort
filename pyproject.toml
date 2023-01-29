@@ -73,10 +73,6 @@ python = ["38", "39", "310", "311"]
 ########################################################################################
 # External Tool Config
 ########################################################################################
-[tool.isort]
-profile = "black"
-src_paths = ["src", "tests"]
-
 [tool.mypy]
 python_version = 3.8
 warn_unused_configs = true
@@ -97,3 +93,35 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.ruff]
+select = [
+    "E", # pydocstyle
+    "W", # pydocstyle
+    "F", # pyflakes
+    "I", # isort
+    "UP", # pyupgrade
+    "D", # docstrings
+    "RUF", # ruff
+]
+ignore = []
+
+# Same as Black.
+line-length = 88
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.8. (minimum supported)
+target-version = "py38"
+
+# The source code paths to consider, e.g., when resolving first- vs. third-party imports
+src = ["kilosort", "tests"]
+
+[tool.ruff.isort]
+known-first-party = ["kilosort", "tests"]
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
